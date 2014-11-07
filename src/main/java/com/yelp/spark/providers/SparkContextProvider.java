@@ -1,4 +1,4 @@
-package com.yelp.spark.util;
+package com.yelp.spark.providers;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -12,11 +12,13 @@ import org.apache.spark.api.java.JavaSparkContext;
 public class SparkContextProvider implements Provider<JavaSparkContext> {
 
     @Inject
-    JobConfiguration jobConfiguration;
+    private JobConfiguration jobConfiguration;
 
     @Override
     public JavaSparkContext get() {
-        SparkConf sparkConf = new SparkConf().setMaster(jobConfiguration.getMaster()).setAppName(jobConfiguration.getAppName());
+        SparkConf sparkConf = new SparkConf()
+                .setMaster(jobConfiguration.getMaster())
+                .setAppName(jobConfiguration.getAppName());
         JavaSparkContext sparkContext = new JavaSparkContext(sparkConf);
         return sparkContext;
     }

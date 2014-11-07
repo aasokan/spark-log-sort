@@ -7,6 +7,7 @@ test: clean
 
 clean:
 	mvn clean
+	rm -rf *.jar
 
 package:
-	mvn package
+	mvn package -DskipTests

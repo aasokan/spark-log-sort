@@ -12,7 +12,6 @@ import org.kohsuke.args4j.CmdLineParser;
  * Main Class
  */
 public class LogSort {
-    private static String APP_NAME = "LogSort";
 
     /**
      * Main method
@@ -28,6 +27,7 @@ public class LogSort {
             // handling of wrong arguments
             System.err.println(e.getMessage());
             cmdLineParser.printUsage(System.err);
+            System.exit(1);
         }
 
         Injector injector = Guice.createInjector(new UtilityModule(),

@@ -1,4 +1,4 @@
-package com.yelp.spark.util;
+package com.yelp.spark.providers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.io.Files;
@@ -17,7 +17,7 @@ import java.io.IOException;
 public class JobConfigurationProvider implements Provider<JobConfiguration> {
 
     @Inject
-    Logger log;
+    private Logger log;
 
     @Inject
     private ObjectMapper objectMapper;

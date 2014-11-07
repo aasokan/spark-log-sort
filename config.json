@@ -1,0 +1,4 @@
+{
+    "inputDataPath": "sample.txt",
+    "master": "local[4]"
+}

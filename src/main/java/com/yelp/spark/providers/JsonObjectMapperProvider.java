@@ -1,4 +1,4 @@
-package com.yelp.spark.util;
+package com.yelp.spark.providers;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -18,10 +18,9 @@ public class JsonObjectMapperProvider implements Provider<ObjectMapper> {
     @Override
     public ObjectMapper get() {
         final ObjectMapper objectMapper = new ObjectMapper();
-
         objectMapper.configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, false);
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-
         return objectMapper;
     }
 }

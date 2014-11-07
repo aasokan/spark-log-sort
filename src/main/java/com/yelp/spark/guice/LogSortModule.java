@@ -4,8 +4,9 @@ import com.google.inject.AbstractModule;
 import com.yelp.spark.LogSortSparkJob;
 import com.yelp.spark.configuration.JobConfiguration;
 import com.yelp.spark.configuration.Options;
-import com.yelp.spark.util.JobConfigurationProvider;
-import com.yelp.spark.util.SparkContextProvider;
+import com.yelp.spark.functions.SortMapFunction;
+import com.yelp.spark.providers.JobConfigurationProvider;
+import com.yelp.spark.providers.SparkContextProvider;
 import org.apache.spark.api.java.JavaSparkContext;
 
 import javax.validation.constraints.NotNull;
@@ -25,6 +26,8 @@ public class LogSortModule extends AbstractModule {
         bind(Options.class).toInstance(options);
         bind(JobConfiguration.class).toProvider(JobConfigurationProvider.class).asEagerSingleton();
         bind(JavaSparkContext.class).toProvider(SparkContextProvider.class).asEagerSingleton();
+        bind(SortMapFunction.class).asEagerSingleton();
+
         bind(LogSortSparkJob.class).asEagerSingleton();
     }
 }
