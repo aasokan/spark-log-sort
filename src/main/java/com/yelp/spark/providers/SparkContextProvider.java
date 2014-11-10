@@ -18,7 +18,8 @@ public class SparkContextProvider implements Provider<JavaSparkContext> {
     public JavaSparkContext get() {
         SparkConf sparkConf = new SparkConf()
                 .setMaster(jobConfiguration.getMaster())
-                .setAppName(jobConfiguration.getAppName());
+                .setAppName(jobConfiguration.getAppName())
+                .set("spark.serializer", "org.apache.spark.serializer.KryoSerializer");
         JavaSparkContext sparkContext = new JavaSparkContext(sparkConf);
         return sparkContext;
     }

@@ -11,3 +11,5 @@ clean:
 
 package:
 	mvn package -DskipTests
+
+jar: package

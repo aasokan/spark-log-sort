@@ -14,7 +14,7 @@ public class JobConfiguration {
     public String inputDataPath;
 
     @JsonProperty
-    public boolean isZipped = false;
+    public Boolean isZipped = false;
 
     @JsonProperty
     public String appName = "LogSort";
@@ -38,11 +38,11 @@ public class JobConfiguration {
         this.appName = appName;
     }
 
-    public boolean isZipped() {
+    public Boolean isZipped() {
         return isZipped;
     }
 
-    public void setZipped(boolean isZipped) {
+    public void setZipped(Boolean isZipped) {
         this.isZipped = isZipped;
     }
 

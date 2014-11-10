@@ -5,11 +5,13 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.inject.Provider;
 
+import java.io.Serializable;
+
 
 /**
  * Util Class for getting the Json Object Mapper
  */
-public class JsonObjectMapperProvider implements Provider<ObjectMapper> {
+public class JsonObjectMapperProvider implements Provider<ObjectMapper>, Serializable {
 
     /**
      * Gets the Json Object Mapper
